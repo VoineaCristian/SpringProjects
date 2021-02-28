@@ -1,0 +1,629 @@
+{
+	"info": {
+		"_postman_id": "bdc4863a-27c5-450c-8b18-fc84abe80cbf",
+		"name": "SurveyApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "LOGIN AS USER",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "username=USER&password=password",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				},
+				"description": "Login Request"
+			},
+			"response": []
+		},
+		{
+			"name": "LOGIN AS NEW USER (AFTER REGISTER)",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "username=NewUser&password=password",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				},
+				"description": "Login Request"
+			},
+			"response": []
+		},
+		{
+			"name": "LOGIN AS NEW USER 2 (AFTER REGISTER)",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "username=username&password=password",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				},
+				"description": "Login Request"
+			},
+			"response": []
+		},
+		{
+			"name": "LOGIN AS ADMIN",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "username=ADMIN&password=password",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				},
+				"description": "Login Request"
+			},
+			"response": []
+		},
+		{
+			"name": "REGISTER NEW USER",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n  \"username\": \"NewUser\",\n  \"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/registration",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"registration"
+					]
+				},
+				"description": "Register new user"
+			},
+			"response": []
+		},
+		{
+			"name": "REGISTER NEW USER 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n  \"username\": \"username\",\n  \"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/registration",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"registration"
+					]
+				},
+				"description": "Register new user"
+			},
+			"response": []
+		},
+		{
+			"name": "[ADMIN]SHOW ALL USERS",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n  \"username\": \"usernames\",\n  \"password\": \"password\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/show-all-users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"show-all-users"
+					]
+				},
+				"description": "print all users"
+			},
+			"response": []
+		},
+		{
+			"name": "[ADMIN]CHANGE ROLE OF SELECTED USER",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n  \"username\": \"USER\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/change-role",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"change-role"
+					]
+				},
+				"description": "Change user role"
+			},
+			"response": []
+		},
+		{
+			"name": "[ADMIN]ADD NEW SURVEY",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n   \"name\": \"New Survey 4\",\n   \"questions\":[{\"inter\":\"Question1\",\n                 \"answers\":[{\"resp\":\"test1\"},{\"resp\":\"test2\"},{\"resp\":\"test3\"}],\n                 \"require\":\"false\"\n                 }\n\n                ,{\"inter\":\"Question2\",\n                  \"require\":\"true\",\n                  \"answers\":[{\"resp\":\"test1\"},{\"resp\":\"test2\"},{\"resp\":\"test3\"},{\"resp\":\"test4\"}]\n                  }],\n    \"enable\":\"true\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/survey/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"survey",
+						""
+					]
+				},
+				"description": "add new Survey"
+			},
+			"response": []
+		},
+		{
+			"name": "[ADMIN]ADD NEW SURVEY 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n   \"name\": \"New Survey 2\",\n   \"questions\":[{\n                \"inter\":\"Question1\",\n                \"answers\":[{\"resp\":\"test1\"},{\"resp\":\"test2\"},{\"resp\":\"test3\"}],\n                \"require\":\"true\"\n                }\n                ,{\n                  \"inter\":\"Question2\",\n                  \"answers\":[{\"resp\":\"test1\"},{\"resp\":\"test2\"},{\"resp\":\"test3\"},{\"resp\":\"test4\"}],\n                   \"require\":\"false\"\n                  }\n                ,{\n                  \"inter\":\"Question3\",\n                  \"answers\":[{\"resp\":\"test1\"},{\"resp\":\"test2\"},{\"resp\":\"test3\"},{\"resp\":\"test4\"}],\n                   \"require\":\"true\"\n                 }\n                ,{\n                  \"inter\":\"Question4\",\n                  \"answers\":[{\"resp\":\"test1\"},{\"resp\":\"test2\"},{\"resp\":\"test3\"},{\"resp\":\"test4\"}],\n                   \"require\":\"false\"\n                 }],\n    \"enable\":\"true\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/survey/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"survey",
+						""
+					]
+				},
+				"description": "add new Survey"
+			},
+			"response": []
+		},
+		{
+			"name": "[ADMIN]Disable/Enable Survey",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/admin/change-survey-status/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"change-survey-status",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[ADMIN]GET STATS OF ALL SURVEYS",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/stats",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"stats"
+					]
+				},
+				"description": "Show stats of all surveys"
+			},
+			"response": []
+		},
+		{
+			"name": "[ADMIN]GET STATS OF SELECTED SURVEY",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[1,2]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/stats/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"stats",
+						"1"
+					]
+				},
+				"description": "show stats of survey with id 1"
+			},
+			"response": []
+		},
+		{
+			"name": "[USER]PRINT ALL SURVEYS",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[1,1]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/surveys",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"surveys"
+					]
+				},
+				"description": "Show List of Surveys"
+			},
+			"response": []
+		},
+		{
+			"name": "[USER]COMPLETE A SELECTED SURVEY 1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"0\":\"0\",\n    \"1\":\"1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/surveys/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"surveys",
+						"1"
+					]
+				},
+				"description": "Complete survey with id 1"
+			},
+			"response": []
+		},
+		{
+			"name": "[USER]COMPLETE A SELECTED SURVEY 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"0\":\"2\"\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/surveys/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"surveys",
+						"2"
+					]
+				},
+				"description": "Complete survey with id 1"
+			},
+			"response": []
+		},
+		{
+			"name": "[USER]COMPLETE A SELECTED SURVEY 3(ONLY AFTER CREATE)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"0\":\"1\",\n    \"1\":\"3\"\n   \n  \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/surveys/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"surveys",
+						"3"
+					]
+				},
+				"description": "Complete survey with id 1"
+			},
+			"response": []
+		},
+		{
+			"name": "[USER]COMPLETE A SELECTED SURVEY 4(ONLY AFTER CREATE)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"0\":\"1\",\n    \"1\":\"3\",\n    \"2\":\"2\",\n    \"3\":\"0\"\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/surveys/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"surveys",
+						"4"
+					]
+				},
+				"description": "Complete survey with id 1"
+			},
+			"response": []
+		},
+		{
+			"name": "[USER]SHOW A SELECTED SURVEY",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/surveys/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"surveys",
+						"1"
+					]
+				},
+				"description": "Print survey with id 1"
+			},
+			"response": []
+		}
+	]
+}
