@@ -1,0 +1,71 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu"
+	rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="path/to/font-awesome/css/font-awesome.min.css">
+<title>Sign in</title>
+<style>
+pr {
+	color: white;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+er {
+	color: red;
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 25px
+}
+</style>
+</head>
+
+<body>
+
+
+	<div class="login">
+		<h1>Register</h1>
+		<er> <span th:text="${message}"></span></er>
+		<form action="#" th:action="@{/register}" th:object="${user}"
+			method="post">
+			<table>
+				<tr>
+					<td><input th:field="*{firstName}" type="text"
+						name="firstName" placeholder="First Name" required></input></td>
+				</tr>
+				<tr>
+					<td><input th:field="*{lastName}" type="text" name="lastName"
+						placeholder="Last Name" required></input></td>
+				</tr>
+				<tr>
+					<td><input th:field="*{email}" type="text" name="email"
+						placeholder="Email" required></input></td>
+				</tr>
+				<tr>
+					<td><input th:field="*{username}" type="text" name="username"
+						placeholder="Username" required></input></td>
+				</tr>
+				<tr>
+					<td><input th:field="*{password}" type="password"
+						name="password" placeholder="Password" required></input></td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="Submit"></input></td>
+				</tr>
+
+			</table>
+			<hr>
+			
+						<a href="/login">Login</a> 
+		</form>
+	</div>
+</body>
+
+</html>
+
+

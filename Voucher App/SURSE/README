@@ -1,0 +1,24 @@
+Voinea Silviu-Cristian
+322CC
+Grad Dificultate(0-10) - 7
+Timp Alocat - 25 ore
+
+	Pentru implementare am considerat bugetul ca fiind o valoare in fuctie de care se limiteaza numarul de vouchere . Bugetul fiind o suma de bani iar in fuctie de valoarea voucherului distribuit acesta sa scada cu acea valoare.
+	Pentru a putea seta orice data am implementat o clasa TIME , aceasta seteaza ora actuala folosind LocalDateTime sau cu un string de forma yyyy;mm;dd.. pentru a seta data,ora dorita
+	Pentru interfata grafica am implementat urmatoarele functii.
+	
+	-"Campanii existente" afiseaza toate campaniile si detalii despre acestea.
+	-"Notificari" afiseaza Notificarile primite de catre utilizatorul logat
+	-"Vouchere" afiseaza voucherele utilizatorului logat
+	-"Generare Vouchere" genereaza 1 voucher pentru una din campaniile active si o trimite userului selectat.Tot aici se afla si functia de "Distribuire Multipla" , se alege un fisier text cu email ,tip voucher , valoarea si distribuie in mod automat .
+	-"Adauga Campanie" genereza o noua campanie.
+	-"Inchide Campanie" 
+	-"Toate Voucherele" , afiseaza toate voucherele distribuite 
+	-"Editare Campanie" editeaza campania selectata, se poate modifica bugetul si data de final. De aici se poate aplica si strategia corespunzatoare campaniei selectate.
+	-"Foloseste Voucher" 
+	-"LogOut" permite schimbarea utilizatorului
+
+	Functiile sunt toate prezente pe interfata de admin , pe interfata de guest sunt prezente doar functiile de afisare a campaniilor , voucherelor ,notificarilor si functia de folosire voucher.
+
+
+ 

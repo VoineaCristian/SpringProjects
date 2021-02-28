@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org">
+
+<head>
+<style>
+body {
+	width: center !important;
+}
+</style>
+
+<title th:text="${user.getUsername()}"></title>
+<link xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/friendsStyle.css" />
+<link rel="stylesheet" href="/css/styleProfile.css" />
+<link rel="stylesheet"
+	href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
+</head>
+
+<div class="container">
+	<div class="row py-5 px-4">
+		<div class="col-md-7 mx-auto">
+			<!-- Profile widget -->
+			<div class="bg-white shadow rounded overflow-hidden">
+				<div class="px-4 pt-0 pb-4 cover">
+					<div class="media align-items-end profile-head">
+						<div class="profile mr-3">
+							<img th:src="${profilePhotoPath}" alt="..." width="150"
+								height="150" class="rounded mb-5 img-thumbnail">
+								
+							<form th:action="'/'+ ${user.getUsername()}" method="get">
+
+								<input th:type="submit"
+									class="btn btn-outline-dark btn-sm btn-block" value="Profile" />
+							</form>
+
+
+						</div>
+
+						<div class="media-body mb-5 text-white">
+							<h4 class="mt-0 mb-0"
+								th:text="${user.getFirstName()} +' '+ ${user.getLastName()}	"></h4>
+							<p class="small mb-4">
+								<i class="fas fa-map-marker-alt mr-2"
+									th:text="${user.getCity()}"></i>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="bg-light p-4 d-flex justify-content-end text-center">
+					<ul class="list-inline mb-0">
+						<br>
+					</ul>
+				</div>
+
+
+				<div class="py-4 px-4">
+
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<h5 class="mb-0">Friends Requests</h5>
+						<form th:action="'/'+${user.getUsername()} + '/friends'"
+							method="get">
+							<input type="submit"
+								class="btn btn-outline-dark btn-sm btn-block" value="Friends" />
+						</form>
+						<form th:action="'/'+${user.getUsername()} + '/friends-request'"
+							method="get">
+							<input type="submit"
+								class="btn btn-outline-dark btn-sm btn-block"
+								value="Friends Requests" disabled />
+						</form>
+						
+
+
+					</div>
+
+
+					<div class="row">
+						<table>
+
+							<tr th:each="request : ${requests}">
+								<div class="col-md-12">
+
+
+									<div class="nearby-user">
+										<div class="row">
+											<div class="col-md-2 col-sm-2">
+
+												<img
+													th:src="${request.getRequester().getImages().getProfilePhoto()}"
+													alt="user" class="profile-photo-lg">
+											</div>
+											<div class="col-md-6 col-sm-2">
+												<h5>
+													<a th:href="'/' + ${request.getRequester().getUsername()}"
+														class="profile-link"><th:block
+															th:text="${request.getRequester().getFullName()}"></a>
+												</h5>
+												<p>
+													<th:block
+														th:text="${request.getRequester().getOccupation()}">
+												</p>
+
+											</div>
+
+
+											<div
+												class="d-flex align-items-center justify-content-between mb-3">
+
+												<form
+													th:action="'/'+${userName} + '/friends-request/' + '?Req=' + ${request.getRequester().getUsername()} + '&response=accept' "
+													method="post">
+
+													<button style='margin: 16px'
+														class="btn btn-primary pull-right">Accept</button>
+
+												</form>
+
+												<form
+													th:action="'/'+${userName} + '/friends' + '?Req=' + ${request.getRequester().getUsername()} "
+													method="post">
+
+													<button class="btn btn-primary pull-right">Decline</button>
+
+												</form>
+
+
+
+
+											</div>
+
+										</div>
+									</div>
+
+									<br> </
+								</div>
+							</tr>
+						</table>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+<script>
+	document.getElementById("Button").disabled = false;
+</script>
+</html>
+

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org">
+
+<head>
+<style>
+body {
+	width: center !important;
+}
+</style>
+
+<title th:text="${user.getUsername()}"></title>
+<link xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/styleProfile.css" />
+<link rel="stylesheet"
+	href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
+</head>
+
+<div class="container">
+	<div class="row py-5 px-4">
+		<div class="col-md-7 mx-auto">
+			<!-- Profile widget -->
+			<div class="bg-white shadow rounded overflow-hidden">
+				<div class="px-4 pt-0 pb-4 cover">
+					<div class="media align-items-end profile-head">
+						<div class="profile mr-3">
+							<img th:src="${profilePhotoPath}" alt="..." width="150"
+								height="0" class="rounded mb-4 img-thumbnail">
+								
+							<form th:action="@{${user.getUsername()}/friend-request/(user=${user.getUsername()},action=${action})}" method="post">
+								<input th:type = "submit"class="btn btn-outline-dark btn-sm btn-block" th:value="${button_text}"/>
+							</form>
+							
+
+						</div>
+						<div class="media-body mb-5 text-white">
+							<h4 class="mt-0 mb-0"
+								th:text="${user.getFirstName()} +' '+ ${user.getLastName()}	"></h4>
+							<p class="small mb-4">
+								<i class="fas fa-map-marker-alt mr-2"
+									th:text="${user.getCity()}"></i>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="bg-light p-4 d-flex justify-content-end text-center">
+					<ul class="list-inline mb-0">
+						<li class="list-inline-item">
+							<h5 class="font-weight-bold mb-0 d-block"
+								th:text="${#lists.size(photos)}"></h5> <small class="text-muted">
+								<i class="fas fa-image mr-1"></i>Photos
+						</small>
+						</li>
+					<li class="list-inline-item">
+							<h5 class="font-weight-bold mb-0 d-block" th:text="${#lists.size(friends)}"></h5> <small
+							class="text-muted"> <i class="fas fa-user mr-1"></i>Friends
+						</small>
+						</li>
+
+					</ul>
+				</div>
+
+				<div class="px-4 py-3">
+					<h5 class="mb-0">About</h5>
+					<div class="p-4 rounded shadow-sm bg-light">
+						<p class="font-italic mb-0" th:text="${user.getOccupation()}"></p>
+						<p class="font-italic mb-0 "
+							th:text="'Lives in ' +' '+ ${user.getLocation()}	"></p>
+						<p class="font-italic mb-0"></p>
+					</div>
+				</div>
+				<div class="py-4 px-4">
+
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<h5 class="mb-0">Recent photos</h5>
+
+
+					</div>
+
+
+					<div class="row" id="my">
+
+
+						<table>
+
+							<tr th:each="photo : ${photos}">
+								<div class="col-lg-6 mb-3 pl-lg-2">
+									
+									<div class="frame">
+										<!-- [LIGHTBOX CONTAINER] -->
+										<div id="lb-back">
+											<div id="lb-img"></div>
+										</div>
+										<div class="imgs">
+											<img th:src="${photo.path}" class="zoomD" />
+										</div>
+									</div>
+
+								</div>
+							</tr>
+						</table>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+<script>var zoomImg = function () {
+	  // Create evil image clone
+	  var clone = this.cloneNode();
+	  clone.classList.remove("zoomD");
+
+	  // Put evil clone into lightbox
+	  var lb = document.getElementById("lb-img");
+	  lb.innerHTML = "";
+	  lb.appendChild(clone);
+
+	  // Show lightbox
+	  lb = document.getElementById("lb-back");
+	  lb.classList.add("show");
+	};
+
+	window.addEventListener("load", function(){
+	  // Attach on click events to all .zoomD images
+	  var images = document.getElementsByClassName("zoomD");
+	  if (images.length>0) {
+	    for (var img of images) {
+	      img.addEventListener("click", zoomImg);
+	    }
+	  }
+
+	  // Click event to hide the lightbox
+	  document.getElementById("lb-back").addEventListener("click", function(){
+	    this.classList.remove("show");
+	  })
+	});</script>
+
+</html>
+

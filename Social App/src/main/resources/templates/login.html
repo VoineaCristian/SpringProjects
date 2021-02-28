@@ -1,0 +1,71 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu"
+	rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="path/to/font-awesome/css/font-awesome.min.css">
+<title>Sign in</title>
+<style>
+pr {
+	color: white;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+er {
+	color: red;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+	<div class="login">
+		<h1>Login</h1>
+		<er th:if="${param.error}" class="error">Wrong username or password</er>
+		<form action="#" th:action="@{/aU}" th:object="${user}" method="post">
+
+
+			</th:if>
+			<table>
+
+				<tr>
+
+					<td><input th:field="*{username}" type="text" name="username"
+						placeholder="Username"></input></td>
+				</tr>
+				<tr>
+
+					<td><input th:field="*{password}" type="password"
+						name="password" placeholder="Password"></input></td>
+				</tr>
+				<tr>
+
+					<td><input type="submit" value="Submit"></input></td>
+				</tr>
+
+
+
+
+			</table>
+
+			<hr>
+
+			<a href="/forgotPassword">Forgot Password?</a> <a href="/register">Sign
+				Up</a>
+
+		</form>
+	</div>
+</body>
+
+</html>
+
+
